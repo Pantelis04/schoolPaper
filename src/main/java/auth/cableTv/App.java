@@ -7,6 +7,8 @@ import auth.cableTv.repository.MediaRepositoryImpl;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Hello world!
@@ -20,6 +22,7 @@ public class App {
 
     private static void createTables() {
 
+      List<String> p=new ArrayList<>();
         try {
             Connection connection = DriverManager.getConnection(JDBC_URL);
             Statement statement = connection.createStatement();
@@ -30,7 +33,8 @@ public class App {
                     "title TEXT," +
                     "description TEXT," +
                     "suitability INTEGER," +
-                    "releaseYear INTEGER" +
+                    "releaseYear INTEGER," +
+                    "actors TEXT" +
                     ")");
 
             // Create Movie table
@@ -103,17 +107,17 @@ public class App {
             System.out.println("Tables created successfully.");
 
             // Insert data into Media table
-            statement.execute("INSERT INTO Media (title, description, suitability, releaseYear) VALUES" +
-                    "('Inception', 'A mind-bending thriller', 1, 2010)," +
-                    "('The Shawshank Redemption', 'Drama in prison', 0, 1994)," +
-                    "('The Godfather', 'Mafia epic', 0, 1972)," +
-                    "('Pulp Fiction', 'Quentin Tarantino classic', 1, 1994)," +
-                    "('The Dark Knight', 'Batman battles Joker', 1, 2008)," +
-                    "('Stranger Things', 'Mystery in Hawkins', 1, 2016)," +
-                    "('Breaking Bad', 'Meth and morality', 0, 2008)," +
-                    "('Friends', 'Classic sitcom', 1, 1994)," +
-                    "('The Crown', 'Royalty and politics', 1, 2016)," +
-                    "('Game of Thrones', 'Epic fantasy', 0, 2011)");
+            statement.execute("INSERT INTO Media (title, description, suitability, releaseYear, actors) VALUES" +
+                    "('Inception', 'A mind-bending thriller', 1, 2010, '[Leonardo DiCaprio, Joseph Gordon-Levitt]')," +
+                    "('The Shawshank Redemption', 'Drama in prison', 0, 1994, '[Tim Robbins, Morgan Freeman]')," +
+                    "('The Godfather', 'Mafia epic', 0, 1972, '[Marlon Brando, Al Pacino]')," +
+                    "('Pulp Fiction', 'Quentin Tarantino classic', 1, 1994, '[John Travolta, Uma Thurman]')," +
+                    "('The Dark Knight', 'Batman battles Joker', 1, 2008, '[Christian Bale, Heath Ledger]')," +
+                    "('Stranger Things', 'Mystery in Hawkins', 1, 2016, '[Winona Ryder, David Harbour]')," +
+                    "('Breaking Bad', 'Meth and morality', 0, 2008, '[Bryan Cranston, Aaron Paul]')," +
+                    "('Friends', 'Classic sitcom', 1, 1994, '[Jennifer Aniston, Courteney Cox]')," +
+                    "('The Crown', 'Royalty and politics', 1, 2016, '[Claire Foy, Matt Smith]')," +
+                    "('Game of Thrones', 'Epic fantasy', 0, 2011, '[Emilia Clarke, Kit Harington]');");
 
             // Insert data into Movie table
             statement.execute("INSERT INTO Movie (duration, genre, media_id) VALUES" +
@@ -147,11 +151,13 @@ public class App {
             media.setDescription("Soldiers fighting");
             media.setReleaseYear(1990);
             media.setSuitability(true);
+            media.setActors(List.of("Stalone","Britney"));
 
             MediaRepository mediaRepository = new MediaRepositoryImpl();
             int id = mediaRepository.saveMedia(media);
 
-            System.out.println(mediaRepository.getMediaById(id).getTitle());
+            System.out.println(mediaRepository.getMediaById(id).getActors());
+            System.out.println(mediaRepository.getMediaById(1).getActors());
         } catch (Exception e) {
             e.printStackTrace();
         }
