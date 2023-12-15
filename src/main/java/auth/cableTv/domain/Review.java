@@ -7,9 +7,9 @@ import lombok.Setter;
 @Setter
 public class Review {
     private String reviewText;
-    private int rating;
+    private short rating;
 
-    public Review(String reviewText, int rating) {
+    public Review(String reviewText, short rating) {
         this.reviewText = reviewText;
         this.rating = rating;
     }

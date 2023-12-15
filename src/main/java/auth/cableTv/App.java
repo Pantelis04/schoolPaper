@@ -19,8 +19,10 @@ public class App {
     }
 
     private static void createTables() {
-        try (Connection connection = DriverManager.getConnection(JDBC_URL);
-             Statement statement = connection.createStatement()) {
+
+        try {
+            Connection connection = DriverManager.getConnection(JDBC_URL);
+            Statement statement = connection.createStatement();
 
             // Create Media table
             statement.execute("CREATE TABLE IF NOT EXISTS Media (" +
@@ -138,6 +140,7 @@ public class App {
                     "(1, 55, 5)");
 
             System.out.println("Data inserted successfully.");
+
             Media media = new Media();
             media.setId(50);
             media.setTitle("Rambo");
