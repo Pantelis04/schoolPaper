@@ -19,10 +19,11 @@ public class MediaRepositoryImpl implements MediaRepository {
      */
     public int saveMedia(Media media) {
         int id = 0;
-        try (Connection connection = DriverManager.getConnection(JDBC_URL);
-             PreparedStatement statement = connection.prepareStatement(
-                     "INSERT INTO Media (title, description, suitability, releaseYear,actors) VALUES (?, ?, ?, ?,?)",
-                     Statement.RETURN_GENERATED_KEYS)) {
+        try {
+            Connection connection = DriverManager.getConnection(JDBC_URL);
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO Media (title, description, suitability, releaseYear,actors) VALUES (?, ?, ?, ?,?)",
+                    Statement.RETURN_GENERATED_KEYS);
 
             statement.setString(1, media.getTitle());
             statement.setString(2, media.getDescription());
