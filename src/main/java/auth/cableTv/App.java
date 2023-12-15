@@ -2,10 +2,10 @@ package auth.cableTv;
 
 import auth.cableTv.domain.Media;
 import auth.cableTv.repository.MediaRepository;
+import auth.cableTv.repository.MediaRepositoryImpl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -138,14 +138,15 @@ public class App {
                     "(1, 55, 5)");
 
             System.out.println("Data inserted successfully.");
-             Media media = new Media();
-             media.setId(50);
-             media.setTitle("Rambo");
-             media.setDescription("Soldiers fighting");
-             media.setReleaseYear(1990);
-             media.setSuitability(true);
-            MediaRepository mediaRepository = new MediaRepository();
-            int id =mediaRepository.saveMedia(media);
+            Media media = new Media();
+            media.setId(50);
+            media.setTitle("Rambo");
+            media.setDescription("Soldiers fighting");
+            media.setReleaseYear(1990);
+            media.setSuitability(true);
+
+            MediaRepository mediaRepository = new MediaRepositoryImpl();
+            int id = mediaRepository.saveMedia(media);
 
             System.out.println(mediaRepository.getMediaById(id).getTitle());
         } catch (Exception e) {
