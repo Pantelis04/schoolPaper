@@ -13,4 +13,14 @@ public class Episode {
         this.episodeNumber = episodeNumber;
         this.duration = duration;
     }
+
+    public Episode() {
+    }
+
+    @Override
+    public String toString() {
+        return "Episode(episodeNumber=" + episodeNumber +
+                ", duration=" + duration +
+                ")";
+    }
 }

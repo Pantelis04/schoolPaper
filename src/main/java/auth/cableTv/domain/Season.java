@@ -12,9 +12,25 @@ public class Season {
     private int releaseYear;
     private List<Episode> episodes;
 
+    public Season(int seasonNumber, int releaseYear) {
+        this.seasonNumber = seasonNumber;
+        this.releaseYear = releaseYear;
+    }
+
     public Season(int seasonNumber, int releaseYear, List<Episode> episodes) {
         this.seasonNumber = seasonNumber;
         this.releaseYear = releaseYear;
         this.episodes = episodes;
+    }
+
+    public Season() {
+    }
+
+    @Override
+    public String toString() {
+        return "Season(seasonNumber=" + seasonNumber +
+                ", releaseYear=" + releaseYear +
+                ", episodes=" + getEpisodes() +
+                ")";
     }
 }

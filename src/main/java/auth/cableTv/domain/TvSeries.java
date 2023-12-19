@@ -3,13 +3,14 @@ package auth.cableTv.domain;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 public class TvSeries extends Media {
     private String category;
-    private List<Season> seasons;
+    private List<Season> seasons = new ArrayList<>();
     private List<String> relatedSeries;
 
 
@@ -20,4 +21,22 @@ public class TvSeries extends Media {
         this.relatedSeries = relatedSeries;
 
     }
+
+    public TvSeries() {
+    }
+
+    @Override
+    public String toString() {
+        return "TvSeries(id=" +getId() +
+                ", title=" +getTitle() +
+                ", description=" +getDescription() +
+                ", suitability=" +isSuitability() +
+                ", releaseYear=" +getReleaseYear() +
+                ", actors=" +getActors() +
+                ", category=" + getCategory() +
+                ", seasons=" + getSeasons().toString() +
+                ", relatedSeries=" + getRelatedSeries() +
+                ")";
+    }
+
 }

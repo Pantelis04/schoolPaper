@@ -1,5 +1,6 @@
 package auth.cableTv.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -9,7 +10,7 @@ public class Media {
     private String description;
     private boolean suitability;
     private int releaseYear;
-    private List<String> actors;
+    private List<String> actors= new ArrayList<>();
 
 
     public Media(int id, String title, String description, boolean suitability, int releaseYear, List<String> actors) {
