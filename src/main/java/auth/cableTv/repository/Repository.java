@@ -1,7 +1,5 @@
 package auth.cableTv.repository;
 
-import auth.cableTv.domain.Movie;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -118,7 +116,6 @@ public class Repository {
     }
 
     private static boolean containsString(List<String> stringList, String line) {
-
         for (String str : stringList) {
 
             if (!line.contains(str)) {
@@ -127,8 +124,5 @@ public class Repository {
         }
         return true;
     }
-
-
-
 
 }

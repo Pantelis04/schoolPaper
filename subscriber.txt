@@ -1,0 +1,1 @@
+Subscriber(firstName=John, lastName=Doe, username=john.doe, password=securePassword, favoriteMovies=[Inception, The Shawshank Redemption], favoriteTvSeries=[Breaking Bad, Game of Thrones], reviews=[Review{reviewText='Great movie!', rating=5, title='Inception'}])

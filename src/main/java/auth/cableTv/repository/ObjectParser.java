@@ -22,9 +22,6 @@ public class ObjectParser {
                 String value = keyValue[1].trim();
 
                 switch (key) {
-                    case "id":
-                        movie.setId(Integer.parseInt(value));
-                        break;
                     case "title":
                         movie.setTitle(value);
                         break;
@@ -117,9 +114,6 @@ public class ObjectParser {
                 String key = keyValue[0].trim();
                 String value = keyValue[1].trim();
                 switch (key) {
-                    case "id":
-                        tvSeries.setId(Integer.parseInt(value));
-                        break;
                     case "title":
                         tvSeries.setTitle(value);
                         break;

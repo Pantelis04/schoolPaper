@@ -1,13 +1,13 @@
 package auth.cableTv;
 
-import auth.cableTv.domain.Episode;
+import auth.cableTv.domain.Admin;
 import auth.cableTv.domain.Movie;
-import auth.cableTv.domain.Season;
-import auth.cableTv.domain.TvSeries;
+import auth.cableTv.domain.Review;
+import auth.cableTv.domain.Subscriber;
 import auth.cableTv.gui.Gui;
-import auth.cableTv.repository.ObjectParser;
 import auth.cableTv.repository.Repository;
 
+import javax.swing.*;
 import java.util.List;
 
 /**
@@ -21,16 +21,34 @@ public class App {
     }
 
     private static void createTables() {
-        Gui g = new Gui();
-        g.newPanel();
+//        SwingUtilities.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                new Gui().setVisible(true);
+//            }
+//        });
+        Repository movieRepository = new Repository();
+        Review review = new Review();
+        review.setReviewText("Great movie!");
+        review.setRating((short) 5);
+        review.setTitle("Inception");
 
-
-
-
+        // Create a new Subscriber object
+        Subscriber subscriber = new Subscriber();
+        subscriber.setFirstName("John");
+        subscriber.setLastName("Doe");
+        subscriber.setUsername("john.doe");
+        subscriber.setPassword("securePassword");
+        subscriber.setFavoriteMovies(List.of("Inception", "The Shawshank Redemption"));
+        subscriber.setFavoriteTvSeries(List.of("Breaking Bad", "Game of Thrones"));
+        subscriber.setReviews(List.of(review));
+        movieRepository.saveLine("subscriber.txt",subscriber.toString());
+////
 //
 //        ObjectParser objectParser = new ObjectParser();
 //        Repository movieRepository = new Repository();
-//
+//        movieRepository.saveLine("admin.txt",new Admin("trunks","12563").toString());
+////
 //        Movie updatedMovie = new Movie();
 //        updatedMovie.setId(5);
 //        updatedMovie.setTitle("Pulp Fiction");
@@ -41,8 +59,8 @@ public class App {
 //        updatedMovie.setDuration(154);
 //        updatedMovie.setGenre("Comedy");
 //
+
 //        Movie movie = new Movie();
-//        movie.setId(5);
 //        movie.setTitle("Pulp Fiction");
 //        movie.setDescription("Quirky crime");
 //        movie.setSuitability(true);
@@ -57,7 +75,7 @@ public class App {
 ////        System.out.println(movieRepository.getLines("movies.txt",List.of("Jack Nicholson")));
 //
 ////        System.out.println(ObjectParser.parseMovieString(movieRepository.getLines("movies.txt",List.of("Pulp Fiction")).get(0)));
-////        movieRepository.saveLine("movies.txt",movie.toString());
+//            movieRepository.saveLine("movies.txt",movie.toString());
 ////        System.out.println(tvSeries);
 //
 //        System.out.println(ObjectParser.parseTvSeries(movieRepository.getLines("tvseries.txt",List.of("The Office")).get(0)));

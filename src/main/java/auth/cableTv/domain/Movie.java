@@ -33,6 +33,6 @@ public class Movie extends Media {
 
     @Override
     public String toString() {
-        return "Movie(id=" + getId() + ", title=" + getTitle() + ", description=" + getDescription() + ", suitability=" + isSuitability() + ", releaseYear=" + getReleaseYear() + ", actors=" + getActors() + ", duration=" + this.duration + ", genre=" + this.genre + ", relatedMovies=" + this.relatedMovies + ")";
+        return "Movie(title=" + getTitle() + ", description=" + getDescription() + ", suitability=" + isSuitability() + ", releaseYear=" + getReleaseYear() + ", actors=" + getActors() + ", duration=" + this.duration + ", genre=" + this.genre + ", relatedMovies=" + this.relatedMovies + ")";
     }
 }

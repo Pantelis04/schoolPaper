@@ -5,7 +5,6 @@ import java.util.List;
 
 
 public class Media {
-    private int id;
     private String title;
     private String description;
     private boolean suitability;
@@ -14,7 +13,6 @@ public class Media {
 
 
     public Media(int id, String title, String description, boolean suitability, int releaseYear, List<String> actors) {
-        this.id = id;
         this.title = title;
         this.description = description;
         this.suitability = suitability;
@@ -23,10 +21,6 @@ public class Media {
     }
 
     public Media() {
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getTitle() {
@@ -47,10 +41,6 @@ public class Media {
 
     public List<String> getActors() {
         return actors;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setTitle(String title) {

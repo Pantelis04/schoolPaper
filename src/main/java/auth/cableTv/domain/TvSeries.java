@@ -27,8 +27,7 @@ public class TvSeries extends Media {
 
     @Override
     public String toString() {
-        return "TvSeries(id=" +getId() +
-                ", title=" +getTitle() +
+        return "TvSeries(title=" +getTitle() +
                 ", description=" +getDescription() +
                 ", suitability=" +isSuitability() +
                 ", releaseYear=" +getReleaseYear() +

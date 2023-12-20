@@ -12,12 +12,15 @@ public class Subscriber {
     private String lastName;
     private String username;
     private String password;
-    private List<Movie> favoriteMovies;
-    private List<TvSeries> favoriteTvSeries;
+    private List<String> favoriteMovies;
+    private List<String> favoriteTvSeries;
     private List<Review> reviews;
 
 
-    public Subscriber(String firstName, String lastName, String username, String password, List<Movie> favoriteMovies, List<TvSeries> favoriteTvSeries, List<Review> reviews) {
+    public Subscriber() {
+    }
+
+    public Subscriber(String firstName, String lastName, String username, String password, List<String> favoriteMovies, List<String> favoriteTvSeries, List<Review> reviews) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -25,5 +28,10 @@ public class Subscriber {
         this.favoriteMovies = favoriteMovies;
         this.favoriteTvSeries = favoriteTvSeries;
         this.reviews = reviews;
+    }
+
+    @Override
+    public String toString() {
+        return "Subscriber(firstName=" + getFirstName() + ", lastName=" + getLastName() + ", username=" + getUsername() + ", password=" + getPassword() + ", favoriteMovies=" + getFavoriteMovies() + ", favoriteTvSeries=" + getFavoriteTvSeries() + ", reviews=" + getReviews().toString() + ")";
     }
 }

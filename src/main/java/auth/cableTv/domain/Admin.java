@@ -13,4 +13,11 @@ public class Admin {
         this.username = username;
         this.password = password;
     }
+
+
+    @Override
+    public String toString() {
+        return "Admin(username=" + getUsername() + ", password=" + getPassword() + ")";
+    }
+
 }
