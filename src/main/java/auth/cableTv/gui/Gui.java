@@ -2,26 +2,37 @@ package auth.cableTv.gui;
 
 import auth.cableTv.domain.Admin;
 import auth.cableTv.domain.Subscriber;
+import auth.cableTv.repository.ObjectParser;
 import auth.cableTv.repository.Repository;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.util.List;
 
-public class Gui extends JFrame{
+public class Gui extends JFrame {
 
     private JPanel categoryPanel;
     private JTextField usernameField;
     private JPasswordField passwordField;
+
+
+    private JTextField firstNameField;
+    private JTextField lastNameField;
     private JButton loginButton;
 
-    private Admin loggedInAdmin;
-    private Subscriber loggedInSubscriber;
+    private JButton registerButton;
 
-    private Repository repository =new Repository();
+    private AdminUi adminUi = new AdminUi();
+
+    private SubscriberUi subscriberUi = new SubscriberUi();
+
+    private RegistrationUi registrationUi = new RegistrationUi();
+
+    private Repository repository = new Repository();
+    private ObjectParser objectParser = new ObjectParser();
+
 
     public Gui() {
         initializeUI();
@@ -36,9 +47,10 @@ public class Gui extends JFrame{
         setResizable(true);
         setFocusable(true);
         setLayout(new BorderLayout());
+
     }
 
-    private void setupLoginPanel() {
+    public void setupLoginPanel() {
         categoryPanel = new JPanel(new GridLayout(3, 2));
 
         categoryPanel.add(new JLabel("Username:"));
@@ -58,6 +70,16 @@ public class Gui extends JFrame{
         });
         categoryPanel.add(loginButton);
 
+        registerButton = new JButton("Regiister");
+        categoryPanel.add(registerButton);
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                registrationUi.showRegistrationPanel();
+            }
+        });
+
+
         add(categoryPanel, BorderLayout.CENTER);
     }
 
@@ -66,41 +88,40 @@ public class Gui extends JFrame{
         String username = usernameField.getText();
         String password = new String(passwordField.getPassword());
 
-        // Use getLines to get admins and subscribers
-        // Check if the user is an admin or subscriber
-        // If admin, show admin panel; if subscriber, show subscriber panel
-        // You need to implement the logic for authentication and switching panels
-
         // For example:
         if (isAdmin(username, password)) {
-            showAdminPanel();
+            adminUi.showAdminPanel(username);
         } else if (isSubscriber(username, password)) {
-            showSubscriberPanel();
+            subscriberUi.showSubscriberPanel(username);
         } else {
             JOptionPane.showMessageDialog(this, "Invalid credentials");
         }
     }
 
     private boolean isAdmin(String username, String password) {
-        repository.getLines("admin.txt", List.of(username,password));
+        List<String> lines = repository.getLines("admin.txt", List.of(username, password));
+        Admin admin = null;
+        if (lines != null && !lines.isEmpty()) {
+            admin = objectParser.parseAdminString(lines.get(0));
+        }
+        if (admin != null && admin.getUsername() != null && !admin.getUsername().isEmpty()) {
+            return true;
+        }
         return false;
     }
 
     private boolean isSubscriber(String username, String password) {
-        repository.getLines("subscriber.txt", List.of(username,password));
+        List<String> lines = repository.getLines("subscriber.txt", List.of(username, password));
+        Subscriber subscriber = null;
+        if (lines != null && !lines.isEmpty()) {
+            subscriber = objectParser.parseSubscriberString(lines.get(0));
+        }
+        if (subscriber != null && subscriber.getUsername() != null && !subscriber.getUsername().isEmpty()) {
+            return true;
+        }
         return false;
     }
 
-    private void showAdminPanel() {
-        // Implement the admin panel
-        // Include search functionality, display movie/tv series details, reviews, and update fields
-    }
-
-    private void showSubscriberPanel() {
-        // Implement the subscriber panel
-        // Include search functionality, display movie/tv series details, and add to favorites
-        // Also, display subscriber profile with reviews and favorite movies/tv series
-    }
 
 
 }

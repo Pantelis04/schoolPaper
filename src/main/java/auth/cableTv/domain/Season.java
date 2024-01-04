@@ -1,12 +1,8 @@
 package auth.cableTv.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.List;
 
-@Getter
-@Setter
+
 public class Season {
     private int seasonNumber;
     private int releaseYear;
@@ -32,5 +28,29 @@ public class Season {
                 ", releaseYear=" + releaseYear +
                 ", episodes=" + getEpisodes() +
                 ")";
+    }
+
+    public int getSeasonNumber() {
+        return seasonNumber;
+    }
+
+    public int getReleaseYear() {
+        return releaseYear;
+    }
+
+    public List<Episode> getEpisodes() {
+        return episodes;
+    }
+
+    public void setSeasonNumber(int seasonNumber) {
+        this.seasonNumber = seasonNumber;
+    }
+
+    public void setReleaseYear(int releaseYear) {
+        this.releaseYear = releaseYear;
+    }
+
+    public void setEpisodes(List<Episode> episodes) {
+        this.episodes = episodes;
     }
 }

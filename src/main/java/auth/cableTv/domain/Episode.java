@@ -1,10 +1,5 @@
 package auth.cableTv.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class Episode {
     private int episodeNumber;
     private int duration;
@@ -22,5 +17,21 @@ public class Episode {
         return "Episode(episodeNumber=" + episodeNumber +
                 ", duration=" + duration +
                 ")";
+    }
+
+    public int getEpisodeNumber() {
+        return episodeNumber;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setEpisodeNumber(int episodeNumber) {
+        this.episodeNumber = episodeNumber;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }

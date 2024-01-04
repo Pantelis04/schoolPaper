@@ -1,14 +1,8 @@
 package auth.cableTv;
 
-import auth.cableTv.domain.Admin;
-import auth.cableTv.domain.Movie;
-import auth.cableTv.domain.Review;
-import auth.cableTv.domain.Subscriber;
 import auth.cableTv.gui.Gui;
-import auth.cableTv.repository.Repository;
 
 import javax.swing.*;
-import java.util.List;
 
 /**
  * Hello world!
@@ -21,28 +15,34 @@ public class App {
     }
 
     private static void createTables() {
-//        SwingUtilities.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                new Gui().setVisible(true);
-//            }
-//        });
-        Repository movieRepository = new Repository();
-        Review review = new Review();
-        review.setReviewText("Great movie!");
-        review.setRating((short) 5);
-        review.setTitle("Inception");
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Gui().setVisible(true);
+            }
+        });
+//        Repository movieRepository = new Repository();
+//        Review review = new Review();
+//        review.setReviewText("Great movie!");
+//        review.setRating((short) 5);
+//        review.setTitle("Inception");
+//
+//        // Create a new Subscriber object
+//        Subscriber subscriber = new Subscriber();
+//        subscriber.setFirstName("John");
+//        subscriber.setLastName("Doe");
+//        subscriber.setUsername("john.doe");
+//        subscriber.setPassword("securePassword");
+//        subscriber.setFavoriteMovies(List.of("Inception", "The Shawshank Redemption"));
+//        subscriber.setFavoriteTvSeries(List.of("Breaking Bad", "Game of Thrones"));
+//        subscriber.setReviews(List.of(review));
+//        movieRepository.saveLine("subscriber.txt",subscriber.toString());
+//        ObjectParser objectParser = new ObjectParser();
+//        System.out.println(ObjectParser.parseSubscriberString(movieRepository.getLines("subscriber.txt",List.of("john.doe")).get(0)));
+//        Repository repository = new Repository();
+//        List<String> lines = repository.getLines("admin.txt", List.of("trunks","12563"));
 
-        // Create a new Subscriber object
-        Subscriber subscriber = new Subscriber();
-        subscriber.setFirstName("John");
-        subscriber.setLastName("Doe");
-        subscriber.setUsername("john.doe");
-        subscriber.setPassword("securePassword");
-        subscriber.setFavoriteMovies(List.of("Inception", "The Shawshank Redemption"));
-        subscriber.setFavoriteTvSeries(List.of("Breaking Bad", "Game of Thrones"));
-        subscriber.setReviews(List.of(review));
-        movieRepository.saveLine("subscriber.txt",subscriber.toString());
+
 ////
 //
 //        ObjectParser objectParser = new ObjectParser();

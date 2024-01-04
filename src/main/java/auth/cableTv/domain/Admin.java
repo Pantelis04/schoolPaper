@@ -1,10 +1,6 @@
 package auth.cableTv.domain;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class Admin {
     private String username;
     private String password;
@@ -14,10 +10,28 @@ public class Admin {
         this.password = password;
     }
 
+    public Admin() {
+    }
+
 
     @Override
     public String toString() {
         return "Admin(username=" + getUsername() + ", password=" + getPassword() + ")";
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

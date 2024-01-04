@@ -6,22 +6,26 @@ import java.util.List;
 
 public class Media {
     private String title;
+
+    private String genre;
     private String description;
     private boolean suitability;
     private int releaseYear;
-    private List<String> actors= new ArrayList<>();
+    private List<String> actors = new ArrayList<>();
 
 
-    public Media(int id, String title, String description, boolean suitability, int releaseYear, List<String> actors) {
+    public Media() {
+    }
+
+    public Media(String title, String genre, String description, boolean suitability, int releaseYear, List<String> actors) {
         this.title = title;
+        this.genre = genre;
         this.description = description;
         this.suitability = suitability;
         this.releaseYear = releaseYear;
         this.actors = actors;
     }
 
-    public Media() {
-    }
 
     public String getTitle() {
         return title;
@@ -61,5 +65,13 @@ public class Media {
 
     public void setActors(List<String> actors) {
         this.actors = actors;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }

@@ -1,10 +1,5 @@
 package auth.cableTv.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class Review {
     private String reviewText;
     private short rating;
@@ -23,11 +18,34 @@ public class Review {
 
     @Override
     public String toString() {
-        return "Review{" +
-                "reviewText='" + reviewText + '\'' +
+        return "Review(" +
+                "reviewText=" + reviewText +
                 ", rating=" + rating +
-                ", title='" + title + '\'' +
-                '}';
+                ", title=" + title +
+                ')';
     }
 
+    public String getReviewText() {
+        return reviewText;
+    }
+
+    public short getRating() {
+        return rating;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setReviewText(String reviewText) {
+        this.reviewText = reviewText;
+    }
+
+    public void setRating(short rating) {
+        this.rating = rating;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

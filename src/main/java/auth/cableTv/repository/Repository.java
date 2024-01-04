@@ -17,7 +17,6 @@ public class Repository {
         }
     }
 
-
     public void updateLineByString(String file, String searchString, String updatedString) {
         try {
             // Create a temporary file
@@ -74,6 +73,7 @@ public class Repository {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (!line.contains(lineToDelete)) {
+                    System.out.println();
                     writer.write(line);
                     writer.newLine();
                 }
@@ -117,9 +117,10 @@ public class Repository {
 
     private static boolean containsString(List<String> stringList, String line) {
         for (String str : stringList) {
-
-            if (!line.contains(str)) {
-                return false;
+            if (str != null) {
+                if (!line.contains(str)) {
+                    return false;
+                }
             }
         }
         return true;
