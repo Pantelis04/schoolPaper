@@ -7,6 +7,14 @@ import java.util.List;
 
 public class ObjectParser {
 
+
+    /**
+     * Μέθοδος που μετατρέπει ενα String σε ένα αντικείμενο τύπου Movie.
+     *
+     * @param movieString Η συμβολοσειρά που περιέχει τα χαρακτηριστικά της ταινίας σε μορφή "Movie(title=ΤΙΤΛΟΣ, description=ΠΕΡΙΓΡΑΦΗ, suitability=ΚΑΤΑΛΛΗΛΟΤΗΤΑ,
+     *                    releaseYear=ΧΡΟΝΟΛΟΓΙΑ, duration=ΔΙΑΡΚΕΙΑ, genre=ΕΙΔΟΣ)".
+     * @return Το αντικείμενο τύπου Movie που περιλαμβάνει τις πληροφορίες της ταινίας.
+     */
     public Movie parseMovieString(String movieString) {
         Movie movie = new Movie();
 
@@ -48,6 +56,13 @@ public class ObjectParser {
         return movie;
     }
 
+
+    /**
+     * Μέθοδος που μετατρέπει ενα String σε λίστα απο Strings.
+     *
+     * @param input Η συμβολοσειρά που περιέχει τα χαρακτηριστικά της ταινίας, συμπεριλαμβανομένων των σχετικών ταινιών.
+     * @return Λίστα που περιέχει τις σχετικές ταινίες που εξάγονται από τη συμβολοσειρά.
+     */
     private List<String> extractRelatedMovies(String input) {
         List<String> movieList = new ArrayList<>();
 
@@ -74,6 +89,12 @@ public class ObjectParser {
     }
 
 
+    /**
+     * Μέθοδος που εξάγει τους ηθοποιούς από το String input.
+     *
+     * @param input Η συμβολοσειρά που περιέχει τα χαρακτηριστικά της ταινίας, συμπεριλαμβανομένων των ηθοποιών.
+     * @return Λίστα που περιέχει τους ηθοποιούς που εξάγονται από τη συμβολοσειρά.
+     */
     private List<String> extractActors(String input) {
         List<String> actorsList = new ArrayList<>();
 
@@ -100,6 +121,13 @@ public class ObjectParser {
     }
 
 
+    /**
+     * Μέθοδος που μετατρέπει ενα String σε ένα αντικείμενο τύπου TvSeries.
+     *
+     * @param tvSeriesString Η συμβολοσειρά που περιέχει τα χαρακτηριστικά της ταινίας σε μορφή "TvSeries(title=ΤΙΤΛΟΣ, description=ΠΕΡΙΓΡΑΦΗ, suitability=ΚΑΤΑΛΛΗΛΟΤΗΤΑ,
+     *                    releaseYear=ΧΡΟΝΟΛΟΓΙΑ, genre=ΕΙΔΟΣ, ...)".
+     * @return Το αντικείμενο τύπου TvSeries που περιλαμβάνει τις πληροφορίες της σειράς.
+     */
     public TvSeries parseTvSeries(String tvSeriesString) {
         TvSeries tvSeries = new TvSeries();
 
@@ -250,14 +278,13 @@ public class ObjectParser {
     }
 
 
-    private List<String> parseStringList(String value) {
-        // Assuming the input string is a comma-separated list
-        String stripValue = value.replace("[", "").replace("]", "");
 
-        String[] elements = stripValue.split(", ");
-        return List.of(elements);
-    }
-
+    /**
+     * Μέθοδος που μετατρέπει ενα String σε ένα αντικείμενο τύπου Admin.
+     *
+     * @param adminString
+     * @return Το αντικείμενο τύπου Admin.
+     */
     public Admin parseAdminString(String adminString) {
         Admin admin = new Admin();
         // Extracting values from the string
@@ -285,6 +312,12 @@ public class ObjectParser {
         return admin;
     }
 
+    /**
+     * Μέθοδος που μετατρέπει ενα String σε ένα αντικείμενο τύπου Subscriber.
+     *
+     * @param subscriberString
+     * @return Το αντικείμενο τύπου Subscriber.
+     */
     public Subscriber parseSubscriberString(String subscriberString) {
         Subscriber subscriber = new Subscriber();
 

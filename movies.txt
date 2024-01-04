@@ -18,4 +18,4 @@ Movie(title=Jurassic Park, description=Dinosaur adventure, suitability=true, rel
 Movie(title=Inglorious Bastards, description=War drama, suitability=true, releaseYear=2009, actors=Brad Pitt, Christoph Waltz, duration=153, genre=War, relatedMovies=null)
 Movie(title=The Social Network, description=Biographical drama, suitability=true, releaseYear=2010, actors=Jesse Eisenberg, Andrew Garfield, duration=120, genre=Drama, relatedMovies=null)
 Movie(title=The Shining, description=Horror, suitability=true, releaseYear=1980, actors=Jack Nicholson, Shelley Duvall, duration=146, genre=Horror, relatedMovies=null)
-Movie(title=Pantelis Movie, description=my movie, suitability=true, releaseYear=1992, actors=[Pantelis Tsirigotis, Giorgos Markou], duration=104, genre=Sci-Fi, relatedMovies=[One supon a time in Hoolywood,  Batman])
+

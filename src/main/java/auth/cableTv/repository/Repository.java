@@ -6,8 +6,12 @@ import java.util.List;
 
 public class Repository {
 
-    private static final String MOVIE_FILE_PATH = "movies.txt";
-
+    /**
+     * Προσθέτει μια γραμμή σε ένα αρχείο.
+     *
+     * @param file Η διαδρομή προς το αρχείο όπου θα προστεθεί η γραμμή.
+     * @param line Η γραμμή που θα προστεθεί στο αρχείο.
+     */
     public void saveLine(String file, String line) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
             writer.write(line);
@@ -17,6 +21,14 @@ public class Repository {
         }
     }
 
+
+    /**
+     * Ενημερώνει μια γραμμή σε ένα αρχείο βάσει ενός κειμένου αναζήτησης.
+     *
+     * @param file Η διαδρομή προς το αρχείο όπου θα πραγματοποιηθεί η ενημέρωση.
+     * @param searchString Το κείμενο που θα χρησιμοποιηθεί για τον εντοπισμό της γραμμής που θα ενημερωθεί.
+     * @param updatedString Το νέο κείμενο που θα χρησιμοποιηθεί για την αντικατάσταση της εντοπισμένης γραμμής.
+     */
     public void updateLineByString(String file, String searchString, String updatedString) {
         try {
             // Create a temporary file
@@ -58,6 +70,12 @@ public class Repository {
         }
     }
 
+    /**
+     * Διαγράφει μια γραμμή από ένα αρχείο βάσει ενός κειμένου.
+     *
+     * @param filePath Η διαδρομή προς το αρχείο από το οποίο θα γίνει η διαγραφή.
+     * @param lineToDelete Το κείμενο που θα χρησιμοποιηθεί για τον εντοπισμό της γραμμής που θα διαγραφεί.
+     */
     public void deleteLineByString(String filePath, String lineToDelete) {
         try {
             // Create a temporary file
